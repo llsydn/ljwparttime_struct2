@@ -1,0 +1,82 @@
+@CHARSET "UTF-8";
+/*分组的标签的样式*/
+ul.bianqian,li {
+	list-style: none;
+}
+
+ul.bianqian li {
+	margin: 1em;
+	float: left;
+}
+
+ul.bianqian li h2 {
+	font-size: 140%;
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+
+ul.bianqian li p {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 110%;
+}
+
+ul.bianqian {
+	overflow: hidden;
+	/* padding: 3em; */
+}
+
+ul.bianqian li a {
+	word-break: break-all;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	text-decoration: none;
+	color: #000;
+	background: #ffc;
+	display: block;
+	height: 5em;
+	width: 25em;
+	padding: 1em;
+	-moz-box-shadow: 5px 5px 7px rgba(33, 33, 33, 1); /* Safari+Chrome */
+	-webkit-box-shadow: 5px 5px 7px rgba(33, 33, 33, .7); /* Opera */
+	box-shadow: 5px 5px 7px rgba(33, 33, 33, .7);
+	-moz-transition: -moz-transform .15s linear;
+	-o-transition: -o-transform .15s linear;
+	-webkit-transition: -webkit-transform .15s linear;
+}
+
+ul.bianqian li:nth-child(even) a {
+	-o-transform: rotate(4deg);
+	-webkit-transform: rotate(4deg);
+	-moz-transform: rotate(4deg);
+	position: relative;
+	top: 5px;
+	background: #cfc;
+}
+
+ul.bianqian li:nth-child(3n) a {
+	-o-transform: rotate(-3deg);
+	-webkit-transform: rotate(-3deg);
+	-moz-transform: rotate(-3deg);
+	position: relative;
+	top: -5px;
+	background: #ccf;
+}
+
+ul.bianqian li:nth-child(5n) a {
+	-o-transform: rotate(5deg);
+	-webkit-transform: rotate(5deg);
+	-moz-transform: rotate(5deg);
+	position: relative;
+	top: -10px;
+}
+
+ul.bianqian li a:hover,ul.bianqian li a:focus {
+	-moz-box-shadow: 10px 10px 7px rgba(0, 0, 0, .7);
+	-webkit-box-shadow: 10px 10px 7px rgba(0, 0, 0, .7);
+	box-shadow: 10px 10px 7px rgba(0, 0, 0, .7);
+	-webkit-transform: scale(1.25);
+	-moz-transform: scale(1.25);
+	-o-transform: scale(1.25);
+	position: relative;
+	z-index: 5;
+}

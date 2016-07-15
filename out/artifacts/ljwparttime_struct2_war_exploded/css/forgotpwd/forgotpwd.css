@@ -1,0 +1,76 @@
+body{
+	background:url(../img/password-bg.jpg);
+	background-image:50%;
+}
+#box{
+	background: rgba(255, 255, 255, 0.8) none repeat scroll 0 0;
+	height: 490px;
+	margin:0 auto;
+	margin-top:80px;
+	width: 800px
+}
+#nav{
+	margin:0 auto;
+	height: 180px;
+	width: 450px;
+/* background:#abcdef; */
+	margin-bottom:40px;
+	text-align:center;
+	line-height:180px;
+}
+#nav h3{
+	color: #02a0e9;
+	display: block;
+	margin: 10px 0 0;
+}
+#content{
+	height: 200px;
+	width: 450px;
+	margin:0 auto;
+	position:relative;
+}
+.text{
+	border: medium none;
+	border-radius: 6px;
+	color: #333;
+	font-family: "Microsoft YaHei",Verdana,Arial;
+	font-size: 16px;
+	height: 50px;
+	line-height: 50px;
+	margin: 5px;
+	outline: medium none;
+	width: 425px;
+	text-indent:6px;
+}
+#checkcode{
+	width:234px;
+}
+img{
+	cursor: pointer;
+	display: inline-block;
+} 
+input:focus{
+	box-shadow:0 0 5px 2px #02a0e9;
+}
+#register{
+	background: #02a0e9 none repeat scroll 0 0;
+	border: medium none;
+	border-radius: 6px;
+	bottom: 0;
+	color: #fff;
+	cursor: pointer;
+	outline: medium none;
+	padding: 10px 25px;
+	position: absolute;
+	right: 20px;
+}
+.right{
+	background: url(../img/success.ico) no-repeat;
+	background-size: 12px;
+	padding-left: 15px;
+}
+.error{
+	background:url(../img/error.png) no-repeat;
+	background-size: 12px;
+	padding-left: 15px;
+}

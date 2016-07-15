@@ -1,0 +1,212 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background: #E7E8EB;
+}
+
+#header {
+	width: 100%;
+	height: 50px;
+	background: rgb(245, 245, 245);
+}
+
+#header_content {
+	width: 80%;
+	margin: auto;
+	height: 50px;
+	background: rgb(245, 245, 245);
+	/*background: red;*/
+}
+
+#header_content #left_touxiang {
+	width: 30px;
+	height: 30px;
+	margin-top: 8px;
+	margin-left: 5px;
+	float: left;
+}
+#right_touxiang{
+	width:50px;
+	height:50px;
+}
+#touxiang{
+	background:#ccc;
+	width:50px;
+	height:50px;
+	border-radius:50px;
+	overflow:hidden;
+	float:right;
+	position:relative;
+	right:200px;
+}
+
+#header_content #member,#header_content #logout {
+	float: right;
+	line-height: 50px;
+	height: 50px;
+	text-decoration: none;
+	margin-right: 5px;
+	font-size: 16px;
+}
+
+#content {
+	/*background: green;*/
+	background: #FFFFFF;
+	width: 80%;
+	height: 800px;
+	margin: 0 auto;
+	font-size: 16px;
+	position: relative;
+}
+
+#content #content_left {
+	width: 20%;
+	height: 800px;
+	border: 1px solid #E7E7EB;
+	border-top: none;
+	position: absolute;
+	left:0;
+}
+
+#content #content_left #myself {
+	background: url(../img/house.ico) no-repeat 26% 10px;
+	background-size: 20px;
+}
+
+#content #content_left dd span a {
+	background: url(../img/right.ico) no-repeat 26% 12px;
+}
+
+.information {
+	background: url(../img/down.ico) no-repeat 26% 12px;
+}
+
+.current {
+	background: url(../img/right.ico) no-repeat 26%;
+}
+
+#userimage {
+	background: #008AE3;
+}
+
+#content #content_left dl {
+	height: 600px;
+	line-height: 250%;
+	text-indent: 20px;
+	font-size: 16px;
+	color: #666;
+	text-align: center;
+}
+
+#content #content_left dd {
+	width: 100%;
+	border: 1px solid #E7E7EB;
+	border-left: none;
+}
+
+#content #content_left dd p {
+	font-size: 14px;
+}
+
+#content #content_left .text {
+	display: block;
+	width: 100%;
+}
+
+#content #content_left a {
+	display: block;
+	width: 100%;
+	text-decoration: none;
+}
+
+#content #content_left a:hover {
+	background: #52ACEA;
+}
+
+#content #content_left a:active {
+	background: #008AE3;
+}
+#content_right {
+	width: 79.8%;
+	height: 800px;
+	background:#F7F7F7;
+	position: absolute;
+	right:0;
+}
+#content_right_header {
+	width: 100%;
+	height: 80px;
+	font-size: 20px;
+	line-height: 80px;
+	text-indent: 20px;
+	border: 1px solid #E7E7EB;
+	border-left: none;
+	border-top: none;
+	border-right: none;
+}
+
+#select {
+	/*background:red;*/
+	/* width:50%; */
+	/* border-right: 1px solid #ccc; */
+	margin: 30px;
+	float: left;
+}
+
+#select p {
+	color: #999999;
+	padding-bottom: 20px;
+}
+
+#previewdiv {
+	float: left;
+}
+
+.pre {
+	padding-top: 30px;
+	padding-bottom: 20px;
+	color: #999999;
+}
+
+.intro {
+	color: #999999;
+	font-size: 12px;
+	padding-top: 110px;
+}
+
+#submit {
+	height: 30px;
+	line-height: 30px;
+	margin-left: 30px;
+	width: 50%;
+	clear: both;
+}
+
+#sure {
+	font-family: "SimSun";
+	width: 80px;
+	border-radius: 5px;
+	background: #02a0e9 none repeat scroll 0 0;
+	border: medium none;
+	border-radius: 6px;
+	bottom: 0;
+	color: #fff;
+	cursor: pointer;
+	outline: medium none;
+	height:40px;
+}
+#success {
+	background: red url(../img/reg_succ.png) no-repeat 2px;
+	text-indent: 15px;
+	float: left;
+	width: 100px;
+}
+#content_right_header img {
+	float: left;
+	margin-top: 8px;
+	margin-left: 30px;
+	line-height: 80px;
+}

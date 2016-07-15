@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>关于我们</title>
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<link rel="shortcut icon" type="image/x-icon" href="img/job.ico" />
+</head>
+<body>
+
+<!--响应式导航-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand logo" style="padding: 1px;"><img src="img/job.ico" alt="瓢城企业网" style="width:45px;height:45px;"></a>
+            <span style="heigh:50px;line-height: 50px;float: left;">兼职招聘网</span>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="icon-bar"></span>  <!--class=navbar-toggle表示当窗口变小的时候会显示出来-->
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/ljwparttime_struct2/index.jsp"><span class="glyphicon glyphicon-home"></span>首页</a>
+                </li>
+                <li><a href="connectus.html"><span class="glyphicon glyphicon-list"></span>联系我们</a></li>
+                <li class="active"><a href="aboutus.html"><span class="glyphicon glyphicon-fire"></span>关于我们</a></li>
+                <li><a href="copyright.html"><span class="glyphicon glyphicon-asterisk"></span>版权声明</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--响应式轮播器-->
+<div id="myCarousel" class="carousel slide" style="margin-top: 50px;">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active" >
+            <img src="img/manager.jpg" alt="第一张" style=" margin:0 auto;">
+        </div>
+        <div class="item">
+            <img src="img/programmer2.jpeg" alt="第二张" style=" margin:0 auto;">
+        </div>
+        <div class="item">
+            <img src="img/programmer1.jpg" alt="第三张" style=" margin:0 auto;">
+        </div>
+    </div>
+    <a href="#myCarousel" data-slide="prev" class="carousel-control left"><!--&lsaquo;-->
+        <!--这里是直接使用左右图标就可以实现垂直居中-->
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a href="#myCarousel" data-slide="next" class="carousel-control right"><!--&rsaquo;-->
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
+<script>
+    $(function(){
+      //2、设置自动播放
+        $('#myCarousel').carousel({
+         //设置播放的时间
+         interval:1000
+         });
+    });
+</script>
+
+
+<!--文本内容-->
+<div class="tab2" style="width:100%;">
+    <div class="container" style="width:100%;padding: 40px 40px;">
+        <div class="col-md-6 col-sm-6">
+            <img src="img/tab2.png" class="auto img-responsive center-block" style="width:30%;height:30%;">
+        </div>
+        <div class="text col-md-5 col-sm-6 tab2-text" style="margin-left: -40px;"> <!--pull-right调整位置-->
+            <h1><span class="label label-default">强大的项目经理</span></h1>
+            <h3>
+                <small>
+                    <p>多年的勤管管理经验，和各种商家交流、接触，都是面不改色，镇定自若</p>
+                    <p>负责组织本工程项目的进行，建立项目安全保证体系对项目过程质量负责</p>
+                    <p>良好的沟通技能，管理资源冲突的能力，适应各类企业的文化与价值观，善于描绘愿景</p>
+                    <p>关注业务战略与敏捷性，能适应变化， 有实践能力，能进行创造性的思考，乐于学习</p>
+                    <p>熟悉各种不同类型的技术平台/方法，有带团队的能力，具有大局观与组织能力</p>
+                </small>
+            </h3>
+        </div>
+    </div>
+</div>
+
+<div class="tab3" style="background:#E8E8E8;">
+    <div class="container" style="padding: 40px 40px;">
+        <div class="text col-md-6 col-sm-6">
+            <h1><span class="label label-default">很牛逼的程序员</span></h1>
+            <h3>
+                <small>
+                    1、对项目经理负责，负责软件项目的详细设计、编码和内部测试的组织实施。
+                    2、参与需求调研、项目可行性分析、技术可行性分析和需求分析。
+                    4、熟悉并熟练掌握交付软件部开发的软件项目的相关软件技术。
+                    5、负责向项目经理及时反馈软件开发中的情况，并根据实际情况提出改进建议。                    6、参与软件开发和维护过程中重大技术问题的解决，参与软件首次安装调试、数据割接、用户培训和项目推广。
+                    7、负责相关技术文档的拟订。
+                    8、负责对业务领域内的技术发展动态进行分析研究。
+                </small>
+            </h3>
+        </div>
+
+        <div class="col-md-6 col-sm-6" >
+            <img src="img/tab3.png" class="auto img-responsive center-block"  style="width:70%;height:70%;">
+        </div>
+
+    </div>
+</div>
+<script>
+    //先获取垂直居中的高度
+    ($('.auto').eq(0).height()-$('.text').eq(0).height())/2+'px';
+    $('.text').eq(0).css('margin-top',($('.auto').eq(0).height()-$('.text').eq(0).height())/2+'px');
+    //当页面的窗口大小改变的时候,也要设置垂直居中
+    $(window).resize(function(){
+        $('.text').eq(0).css('margin-top',($('.auto').eq(0).height()-$('.text').eq(0).height())/2+'px');
+    });
+
+
+    ($('.auto').eq(1).height()-$('.text').eq(1).height())/2+'px';
+    $('.text').eq(1).css('margin-top',($('.auto').eq(1).height()-$('.text').eq(1).height())/2+'px');
+    //当页面的窗口大小改变的时候,也要设置垂直居中
+    $(window).resize(function(){
+        $('.text').eq(1).css('margin-top',($('.auto').eq(1).height()-$('.text').eq(1).height())/2+'px');
+    });
+</script>
+</body>
+</html>

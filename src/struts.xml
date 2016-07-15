@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <constant name="struts.i18n.encoding" value="utf-8"/>
+    <constant name="struts.devMode" value="true"/>
+    <package name="ljwparttime" extends="json-default">
+        <!-- 权限拦截器 -->
+        <interceptors>
+            <!-- 自定义 的拦截器 -->
+            <interceptor name="permission" class="lyw.itcast.interceptor.PermissionInterceptor"></interceptor>
+            <interceptor-stack name="permissionStack">
+                <!-- 系统的拦截器栈 -->
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+                <interceptor-ref name="permission"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <!-- 定义的 全局拦截器,所有的action都会用到这个拦截器
+        <default-interceptor-ref name="permissionStack"></default-interceptor-ref>-->
+
+        <!-- 定义一个全局视图 -->
+        <global-results>
+            <result name="message">message.jsp</result>
+            <result name="error">/error.jsp</result>
+        </global-results>
+
+        <!-- 权限拦截,用户是否已经登录,点击修改头像 -->
+        <action name="ChangPhotoAction" class="lyw.itcast.action.UploadAction" method="changephoto">
+            <interceptor-ref name="permissionStack"></interceptor-ref>  <!-- 这样就会使用到这个拦截器 -->
+            <result name="success" type="redirect">person/personalimage.jsp</result>
+        </action>
+
+        <!-- 用户收藏的商家action，CollectAction -->
+        <action name="CollectAction" class="lyw.itcast.action.CollectionAction" method="addcollection">
+            <result type="json">
+                <param name="root">dataMap</param>
+            </result>
+        </action>
+
+        <!-- 用户查看收藏过的商家信息 -->
+        <action name="UserBusinessAction" class="lyw.itcast.action.CollectionAction" method="showbusiness">
+            <result name="success">/person/personbusiness.jsp</result>
+        </action>
+        <!-- 删除收藏过的商家信息 -->
+        <action name="DeleteCollectAction" class="lyw.itcast.action.CollectionAction" method="deletebusiness">
+            <result name="success" type="redirect">/success.jsp</result>
+        </action>
+
+
+        <!-- 用户申请兼职action -->
+        <action name="RequestAction" class="lyw.itcast.action.RequestAction" method="requestaction">
+            <result type="json">
+                <param name="root">dataMap</param>
+            </result>
+        </action>
+        <!-- 用户查看申请过的兼职信息 -->
+        <action name="UserMessageAction" class="lyw.itcast.action.RequestAction" method="usermessage">
+            <result name="success">/person/personrequest.jsp</result>
+        </action>
+        <!-- 删除申请过的兼职信息 -->
+        <action name="DeleteMessageAction" class="lyw.itcast.action.RequestAction" method="deletemessage">
+            <result name="success" type="redirect">/success.jsp</result>
+        </action>
+
+
+        <!-- 在点击个人中心的时候，就调用这个action，把用户的信息保存在session中去 -->
+        <action name="personinfomation" class="lyw.itcast.action.UserAction"
+                method="person">
+            <result name="success" type="redirect">person/summary.jsp</result>
+        </action>
+
+        <!-- 头像上传action -->
+        <action name="upload" class="lyw.itcast.action.UploadAction"
+                method="execute">
+            <result name="success">/success.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        <!-- 头像剪切 -->
+        <action name="cutPic" class="lyw.itcast.action.UploadAction"
+                method="cutPic">
+            <result name="success">/person/userimage.jsp</result>
+            <result name="input">/error.jsp</result>
+        </action>
+
+
+        <action name="page">
+            <result>/page.jsp</result>
+        </action>
+        <action name="findAllCommodity" class="lyw.itcast.action.CommodityAction">
+            <result>/include/commodityList.jsp</result>
+        </action>
+        <!-- 添加用户的action -->
+        <action name="AddUserServletAction" class="lyw.itcast.action.UserAction"
+                method="processing">
+            <result type="json">
+                <param name="root">dataMap</param>
+            </result>
+        </action>
+
+        <!-- 更新用户信息的action -->
+        <action name="UpdateUserAction" class="lyw.itcast.action.UserAction"
+                method="update">
+            <result type="json">
+                <param name="root">dataMap</param>
+            </result>
+        </action>
+        <!-- 管理员更新用户信息的action -->
+        <action name="AdminUpdateUser" class="lyw.itcast.action.UserAction"
+                method="adminUpdateUser">
+            <result type="json">
+                <param name="root">dataMap</param>
+            </result>
+        </action>
+        <!-- 管理员删除用户的action -->
+        <action name="AdminDeleteUser" class="lyw.itcast.action.UserAction"
+                method="adminDeleteUser">
+            <result type="json">
+                <param name="root">dataMap</param>
+            </result>
+        </action>
+
+        <!-- 查找是否存在不包含cookie中的username -->
+        <action name="haveOtherUserAction" class="lyw.itcast.action.UserAction"
+                method="haveOtherUser">
+            <result type="json">
+                <param name="root">dataMap</param>
+            </result>
+        </action>
+
+        <!-- 查找用户是否已经存在 -->
+        <action name="haveUserAction" class="lyw.itcast.action.UserAction"
+                method="haveUser">
+            <result type="json">
+                <param name="root">dataMap</param>
+            </result>
+        </action>
+        <!-- 验证码action -->
+        <action name="CheckCodeAction" class="lyw.itcast.action.CheckCodeAction"
+                method="processing">
+        </action>
+        <!-- 登陆action -->
+        <action name="LoginAction" class="lyw.itcast.action.LoginAction"
+                method="processing">
+        </action>
+
+        <!-- *************** -->
+        <!-- 兼职信息相关 -->
+        <!-- *************** -->
+        <!-- 返回兼职信息列表的action -->
+        <action name="MessageListAction" class="lyw.itcast.action.MessageAction"
+                method="getMessageList">
+            <result type="json">
+                <param name="root">data</param>
+            </result>
+        </action>
+        <!-- 返回兼职信息数量的action -->
+        <action name="MessageCountAction" class="lyw.itcast.action.MessageAction"
+                method="getMessageCount">
+            <result type="json">
+                <param name="root">messageTotalCount</param>
+            </result>
+        </action>
+        <!-- 获得兼职信息详情的action -->
+        <action name="MessageDetailAction" class="lyw.itcast.action.MessageAction"
+                method="getMessageDetail">
+            <result name="success">/include/messageDetail.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        <!--添加新的兼职信息-->
+        <action name="addMessage" class="lyw.itcast.action.AddMessageAction">
+            <result type="json">
+                <param name="includeProperties">success,msg</param>
+            </result>
+        </action>
+        <!-- 用户信息的action -->
+        <action name="UserinfoAction" class="lyw.itcast.action.UserinfoAction"
+                method="findUser">
+            <result type="redirect">/person/mypersonal.jsp</result>
+        </action>
+
+        <!-- 用户简历action -->
+        <action name="UserresumeAction_*" class="lyw.itcast.action.UserresumeAction"
+                method="{1}">
+            <!-- 防止表单重复提交 -->
+            <interceptor-ref name="defaultStack"></interceptor-ref> <!-- 默认的拦截器 -->
+            <interceptor-ref name="token"></interceptor-ref>
+            <result name="invalid.token">/person/createresume.jsp</result>
+            <result type="redirect">/success.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <!-- 查询出用户所有简历 -->
+        <action name="ShowresumeAction" class="lyw.itcast.action.UserresumeAction"
+                method="Showresume">
+            <result>/person/showresume.jsp</result>
+        </action>
+
+        <!-- 查看用户简历信息 -->
+        <action name="ShowpersonresumeAction" class="lyw.itcast.action.UserresumeAction"
+                method="showpersonresume">
+            <result name="showpersonresume" type="redirect">/person/showpersonresume.jsp</result>
+        </action>
+
+        <!-- 要修改用户简历前,简历信息的展示 -->
+        <action name="ShowpersonresumeAction_update" class="lyw.itcast.action.UserresumeAction"
+                method="showpersonresume_update">
+            <result name="showpersonresume_update" type="redirect">/person/updateresume.jsp</result>
+        </action>
+
+        <!-- 修改用户简历 -->
+        <action name="UpdateresumeAction" class="lyw.itcast.action.UserresumeAction"
+                method="updateresume">
+            <!-- 防止表单重复提交 -->
+            <interceptor-ref name="defaultStack"></interceptor-ref> <!-- 默认的拦截器 -->
+            <interceptor-ref name="token"></interceptor-ref>
+            <result name="invalid.token">/person/updateresume.jsp</result>
+            <result name="update" type="redirect">/person/updateresume.jsp</result>
+        </action>
+
+        <!-- 删除简历 -->
+        <action name="DeleteresumeAction" class="lyw.itcast.action.UserresumeAction"
+                method="deleteresume">
+            <result name="deleteresume" type="redirect">/success.jsp</result>
+        </action>
+
+        <!-- 检查username和email是否存在，还有验证码 （ajax检查的）-->
+        <action name="CheckuserNameOrEmailAction" class="lyw.itcast.action.CheckuserNameOrEmailAction"
+                method="checkuserNameOrEmail">
+        </action>
+
+        <!-- 发送邮件的action -->
+        <action name="SendEmailAction" class="lyw.itcast.action.CheckuserNameOrEmailAction"
+                method="sendEmail">
+            <result name="sendEmail" type="redirect">/forgotpwd/emailsuccess.jsp</result>
+        </action>
+
+        <!-- 重置用户密码的actionUI。resetPasswordAction -->
+        <action name="resetPasswordUIAction" class="lyw.itcast.action.CheckuserNameOrEmailAction"
+                method="resetPasswordUI">
+            <result name="resetPasswordUI">/forgotpwd/resetPassword.jsp</result>
+        </action>
+
+        <!-- 重置用户密码的action -->
+        <action name="resetPasswordAction" class="lyw.itcast.action.CheckuserNameOrEmailAction"
+                method="resetPassword">
+            <result name="resetPassword" type="redirect">message.jsp</result>
+        </action>
+
+        <!-- *************** -->
+        <!-- 评论回复相关 -->
+        <!-- *************** -->
+        <!-- 获得某一页的评论list,返回json -->
+        <action name="commentlist" class="lyw.itcast.action.CommentAction" method="getCommentList">
+            <result type="json">
+                <param name="root">comList</param>
+            </result>
+        </action>
+        <!-- 获得评论的Page,返回json -->
+        <action name="commentpage" class="lyw.itcast.action.CommentAction" method="getCommentPage">
+            <result type="json">
+                <param name="root">comPage</param>
+            </result>
+        </action>
+        <!-- 获得第一页的回复list,包含Page,返回json -->
+        <action name="refreshreply" class="lyw.itcast.action.CommentAction" method="getPageOneReply">
+            <result type="json">
+                <param name="includeProperties">replyPage.*,replies2.*</param>
+            </result>
+        </action>
+        <!-- 获得某一页的回复list,返回json -->
+        <action name="replys" class="lyw.itcast.action.CommentAction" method="getRepliesByPage">
+            <result type="json">
+                <param name="root">replies</param>
+            </result>
+        </action>
+        <!-- 获得某一页的回复list,返回json -->
+        <action name="addcomment" class="lyw.itcast.action.addCommentAction">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+
+        <!-- 账号安全中修改个人密码,先查找用户输入的旧密码是否正确。 -->
+        <action name="CheckPasswordAction" class="lyw.itcast.action.LoginAction" method="checkpassword"></action>
+
+        <!---->
+        <!--商家-->
+        <!---->
+        <!--登录登出-->
+        <action name="businesslogin" class="lyw.itcast.action.BusinessAction" method="login">
+            <result name="success" type="json">
+                <param name="includeProperties">success,msg</param>
+            </result>
+            <result name="logout">/business/login.jsp</result>
+        </action>
+        <!--注册-->
+        <action name="businessreg" class="lyw.itcast.action.BusinessAction" method="reg">
+            <result type="json">
+                <param name="includeProperties">success,msg</param>
+            </result>
+        </action>
+        <!--信息更新-->
+        <action name="businessupdate" class="lyw.itcast.action.BusinessAction" method="update">
+            <result type="json">
+                <param name="includeProperties">success,msg</param>
+            </result>
+        </action>
+        <!--访问页面的action-->
+        <action name="businesshome" class="lyw.itcast.action.BisinessPageAction" method="info">
+            <!--没有登录页面-->
+            <result name="nologin">/business/login.jsp</result>
+            <!--商家空间-->
+            <result name="home">/business/main.jsp</result>
+            <result name="space">/business/space.jsp</result>
+            <result name="manage">/business/manage.jsp</result>
+            <!--兼职人员申请查看-->
+            <result name="person">/business/person.jsp</result>
+
+        </action>
+        <!--上传logo的action-->
+        <action name="businesslogo" class="lyw.itcast.action.BusinessLogoAction">
+            <result type="json">
+                <param name="includeProperties">msg,success,logourl</param>
+            </result>
+        </action>
+        <!--获取该商家发布的所有兼职信息-->
+        <action name="businessMessage" class="lyw.itcast.action.MessageAction" method="getBusinessMessages">
+            <result type="json">
+                <param name="includeProperties">data.*,mypage.*</param>
+            </result>
+        </action>
+
+        <!---->
+        <!--管理员-->
+        <!---->
+        <!--管理员登录-->
+        <action name="adminLogin" class="lyw.itcast.action.AdminLogin">
+            <!--登录成功,到另一个action-->
+            <result name="success" type="redirect">admin</result>
+            <!--退出登录-->
+            <result name="logout">/admin/login.jsp</result>
+            <!--登录失败，返回继续登录-->
+            <result name="again">/admin/login.jsp</result>
+            <!--默认页面-->
+            <result name="default">/admin/login.jsp</result>
+        </action>
+        <!--管理员导航页面-->
+        <action name="admin" class="lyw.itcast.action.AdminPage">
+            <!--主页-->
+            <result name="main">/admin/index.jsp</result>
+            <!--商家审核-->
+            <result name="business_vertify">/admin/business_verify.jsp</result>
+            <result name="business_manage">/admin/business_manage.jsp</result>
+            <result name="message_manage">/admin/message_manage.jsp</result>
+            <result name="user_manage">/admin/user_manage.jsp</result>
+            <result name="commodity_manage">/admin/commodity_manage.jsp</result>
+            <!--没有登录-->
+            <result name="nologin" type="redirect">adminLogin.action</result>
+        </action>
+	
+		<!--兼职分类-->
+        <action name="admincommodity" class="lyw.itcast.action.CommodityAction" method="update">
+            <result type="json">
+                <param name="root">datamap</param>
+            </result>
+        </action>
+		
+		
+		<!-- 意见反馈action-->
+		<action name="FeedBackAction" class="lyw.itcast.action.FeedBackAction" method="addfeedback">
+            <result type="json">
+                <param name="root">dataMap</param>
+            </result>
+        </action>
+
+
+			
+    </package>
+</struts>

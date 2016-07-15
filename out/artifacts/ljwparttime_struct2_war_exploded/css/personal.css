@@ -1,0 +1,181 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background: #E7E8EB;
+}
+
+#header {
+	width: 100%;
+	height: 50px;
+	background: rgb(245, 245, 245);
+}
+
+#header_content {
+	width: 80%;
+	margin: auto;
+	height: 50px;
+	background: rgb(245, 245, 245);
+	/*background: red;*/
+}
+
+#header_content img {
+	width: 30px;
+	height: 30px;
+	margin-top: 8px;
+	margin-left: 5px;
+	float: left;
+}
+
+#header_content #member,#header_content #logout {
+	float: right;
+	line-height: 50px;
+	height: 50px;
+	text-decoration: none;
+	margin-right: 5px;
+	font-size: 16px;
+}
+
+#content {
+	/*background: green;*/
+	background: #FFFFFF;
+	width: 80%;
+	height: 800px;
+	margin: 0 auto;
+	font-size: 16px;
+	margin-top: 50px;
+}
+
+#content #content_left {
+	width: 20%;
+	height: 800px;
+	float: left;
+	border: 1px solid #E7E7EB;
+	border-top: none;
+}
+
+#content #content_left #myself img {
+	width: 16px;
+	height: 16px;
+}
+
+#content #content_left #myself {
+	text-indent: 10px;
+}
+
+#content #content_left #myself span {
+	margin-left: 10px;
+}
+
+#content #content_left dl {
+	height: 600px;
+	line-height: 250%;
+	text-indent: 20px;
+	font-size: 16px;
+	color: #666;
+	text-indent: 35px;
+}
+
+#content #content_left dd {
+	width: 100%;
+	border: 1px solid #E7E7EB;
+	border-left: none;
+}
+
+#content #content_left .text {
+	display: block;
+	width: 100%;
+}
+
+#content #content_left a {
+	display: block;
+	width: 100%;
+	text-decoration: none;
+}
+
+#content #content_left a:hover {
+	background: #F4F5F9;
+}
+
+#content #content_left a:active {
+	background: #52ACEA;
+}
+
+#content #content_left #myinfo {
+	background: #52ACEA;
+}
+
+#content_right {
+	/*width: 80%;*/
+	width: 79.6%;
+	height: 800px;
+	float: left;
+	/*background: green;*/
+}
+
+#content_right_header {
+	width: 100%;
+	height: 80px;
+	font-size: 20px;
+	line-height: 80px;
+	text-indent: 20px;
+	border: 1px solid #E7E7EB;
+	border-left: none;
+	border-top: none;
+	border-right: none;
+}
+
+#content_right #personinfo {
+	width: 100%;
+	margin: 0 auto;
+	height: 500px;
+	line-height: 200%;
+	text-align: center;
+	border-radius: 5px;
+	margin-top: 20px;
+	/*background-color: red;*/
+}
+
+#personinfo input {
+	height: 30px;
+	line-height: 20px;
+	border-radius: 3px;
+}
+
+#personinfo #sub_xiugai input {
+	width: 60px;
+	background: #52ACEA;
+	border-radius: 5px;
+}
+
+#personinfo .ti_shi {
+	font-size: 10px;
+	color: #666;
+	text-indent: -50px;
+}
+
+*:focus {
+	outline: none;
+}
+
+#personinfo ul {
+	/*background-color:red;*/
+	margin: auto;
+	color: maroon;
+	list-style: none;
+}
+
+#personinfo ul li {
+	width: auto;
+}
+
+#loading {
+	background: url(../img/loading.gif) no-repeat 20px center;
+	line-height: 25px;
+	font-size: 14px;
+	font-weight: bold;
+	text-indent: 40px;
+	color: #666;
+}

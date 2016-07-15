@@ -1,0 +1,181 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background: #E7E8EB;
+}
+
+#header {
+	width: 100%;
+	height: 50px;
+	background: rgb(245, 245, 245);
+}
+
+#header_content {
+	width: 80%;
+	margin: auto;
+	height: 50px;
+	background: rgb(245, 245, 245);
+}
+
+#header_content #left_touxiang {
+	width: 30px;
+	height: 30px;
+	margin-top: 8px;
+	margin-left: 5px;
+	float: left;
+}
+#right_touxiang{
+	width:50px;
+	height:50px;
+}
+#touxiang{
+	background:#ccc;
+	width:50px;
+	height:50px;
+	border-radius:50px;
+	overflow:hidden;
+	float:right;
+	position:relative;
+	right:200px;
+}
+
+#header_content #member,#header_content #logout {
+	float: right;
+	line-height: 50px;
+	height: 50px;
+	text-decoration: none;
+	margin-right: 5px;
+	font-size: 16px;
+}
+
+#content {
+	background: #FFFFFF;
+	width: 80%;
+	height: 800px;
+	margin: 0 auto;
+	font-size: 16px;
+}
+#content_right {
+	width: 100%;
+	height: 800px;
+	float: left;
+	background:#F7F7F7;
+}
+#content_right_header {
+	width: 100%;
+	height: 80px;
+	font-size: 20px;
+	line-height: 80px;
+	text-indent: 20px;
+	border: 1px solid #E7E7EB;
+	border-left: none;
+	border-top: none;
+	border-right: none;
+}
+#content_right_header span a{
+	text-decoration: none;
+	font-size:16px;	
+}
+#resumetable {
+	margin: auto;
+	width: 80%;
+	height: 400px;
+	font-size: 16px;
+	line-height: 30%;
+}
+#resumetable tr {
+	height: 35px;
+}
+
+#relf td {
+	height: 80px;
+}
+
+#experience td {
+	height: 80px;
+}
+
+#resumetable input {
+	border: 1px solid #C6C6C6;
+	border-radius: 5px;
+	width: auto;
+	height: 30px;
+	box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.075)
+}
+
+*:focus {
+	outline: none;
+}
+
+#resumetable textarea {
+	width: 300px;
+	height: 70px;
+	border: 1px solid #C6C6C6;
+	border-radius: 3px;
+	box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.075);
+	float:left
+}
+
+#resumetable #tijiao {
+	text-align: center;
+	width: 50px;
+	height: 35px;
+}
+
+#resumetable #tijiao input {
+	width: 100px;
+	margin-left: -10px;
+}
+
+#resumetable #tijiao input:hover {
+	background: #F4F5F9;
+}
+
+#resumetable #tijiao input:active {
+	background: #52ACEA;
+}
+
+#lookresume,#createresume {
+	display: none;
+}
+
+.error {
+	background:url(../img/error.png) no-repeat;
+	background-size: 12px;
+	padding-left: 15px;
+}
+.error1 img{
+	width:12px;
+	height:12px;
+}
+.right1 img{
+	width:12px;
+	height:12px;
+}
+.right {
+	background: url(../img/reg_succ.png) no-repeat;
+	background-size: 12px;
+	padding-left: 15px;
+}
+
+#sexselect {
+	height: 40px;
+	background-size: 12px;
+	margin: 1px;
+}
+
+#male {
+	height: 30px;
+}
+
+#female {
+	border-radius: 5px;
+}
+
+textarea.focus {
+	border: solid 1px #0f9ae09;
+	border-color: rgba(82, 168, 236, 0.8);
+}
